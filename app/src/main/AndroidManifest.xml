@@ -12,6 +12,16 @@
         android:theme="@style/Theme.ResultSaverForCCJ"
         tools:targetApi="31">
         <activity
+            android:name=".Manage"
+            android:exported="false" />
+        <activity
+            android:name=".Option"
+            android:exported="false" />
+        <activity
+            android:name=".Stats"
+            android:exported="false" />
+        <activity android:name=".AddResult" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

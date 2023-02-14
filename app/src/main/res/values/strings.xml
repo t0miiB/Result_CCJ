@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Result saver forCCJ</string>
+    <string name="stats">統計・指標算出</string>
+    <string name="manage">成績閲覧・管理</string>
+    <string name="option">設定</string>
+    <string name="Add">追加</string>
+    <string name="enter">成績記入</string>
 </resources>
