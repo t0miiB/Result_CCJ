@@ -19,21 +19,24 @@
         app:layout_constraintHorizontal_bias="0.156"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="TextSizeCheck" />
 
     <Button
         android:id="@+id/Manage"
         android:layout_width="300dp"
         android:layout_height="120dp"
-        android:backgroundTint="#1CCCE3"
+        android:backgroundTint="#49DEF1"
         android:text="@string/manage"
         android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.150" />
+        app:layout_constraintVertical_bias="0.150"
+        tools:ignore="TextSizeCheck,TextContrastCheck" />
 
     <Button
         android:id="@+id/Stats"
@@ -42,12 +45,14 @@
         android:backgroundTint="#2191EA"
         android:text="@string/stats"
         android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.400" />
+        app:layout_constraintTop_toBottomOf="@+id/Manage"
+        app:layout_constraintVertical_bias="0.075"
+        tools:ignore="TextSizeCheck" />
 
     <Button
         android:id="@+id/Option"
@@ -56,12 +61,13 @@
         android:backgroundTint="#1D3ADF"
         android:text="@string/option"
         android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.650" />
+        app:layout_constraintTop_toBottomOf="@+id/Stats"
+        app:layout_constraintVertical_bias="0.14" />
 
     <Button
         android:id="@+id/AddResult"
@@ -69,11 +75,14 @@
         android:layout_height="68dp"
         android:text="@string/enter"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.829" />
+        app:layout_constraintTop_toBottomOf="@+id/Option"
+        app:layout_constraintVertical_bias="0.24" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

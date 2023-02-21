@@ -3,6 +3,43 @@
     <string name="stats">統計・指標算出</string>
     <string name="manage">成績閲覧・管理</string>
     <string name="option">設定</string>
-    <string name="Add">追加</string>
+    <string name="add">追加</string>
     <string name="enter">成績記入</string>
+    <string name="winlose">試合結果</string>
+    <string name="character_used">使用キャラ</string>
+    <string name="map">マップ</string>
+    <string-array name="Result_wld">
+        <item>WIN</item>
+        <item>LOSE</item>
+        <item>DRAW</item>
+    </string-array>
+    <string-array name="Chara_list">
+        <item>カギコ</item>
+        <item>チノン</item>
+        <item>ミヨミ</item>
+        <item>ボタン</item>
+        <item>パイン</item>
+        <item>ツバキ</item>
+        <item>紅刃</item>
+    </string-array>
+    <string-array name="Map_list">
+        <item>ウラシブヤ</item>
+        <item>ウラシブヤ2</item>
+        <item>ウラオオサカ</item>
+    </string-array>
+    <string name="kill">倒した数</string>
+    <string name="death">倒された数</string>
+    <string name="charge">充電</string>
+    <string name="chain">チェイン数</string>
+    <string name="run_p">逃走P</string>
+    <string name="save">保存</string>
+    <string name="cancel">中止</string>
+    <string name="cpu_partially">CPU混在</string>
+    <string name="cpu_all">CPU戦</string>
+    <string name="goal_in">ゴールイン</string>
+    <string name="set_number">数値を入力（回）</string>
+    <string name="set_number2">数値を入力（％）</string>
+    <string name="set_number3">数値を入力（Pt）</string>
+    <string name="score">スコア</string>
+
 </resources>
