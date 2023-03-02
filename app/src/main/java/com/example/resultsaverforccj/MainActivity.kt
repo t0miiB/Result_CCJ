@@ -10,6 +10,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+        //画面遷移関連
         val addR = findViewById<Button>(R.id.AddResult)
         addR.setOnClickListener {
             val i = Intent(this,AddResult::class.java)
@@ -29,6 +31,13 @@ class MainActivity : AppCompatActivity() {
         opt.setOnClickListener {
             val i = Intent(this, Option::class.java)
             startActivity(i)
+
+
         }
+
+
+
     }
+
+
 }

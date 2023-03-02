@@ -6,4 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".Option">
 
+    <TextView
+        android:id="@+id/default_chara"
+        android:layout_width="275dp"
+        android:layout_height="52dp"
+        android:text="@string/default_chara"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.117"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023"
+        tools:ignore="TextSizeCheck" />
+
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:background="#2BEFB1"
+        android:backgroundTint="#EDE8BA"
+        android:entries="@array/Chara_list"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.938"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.116" />
 </androidx.constraintlayout.widget.ConstraintLayout>

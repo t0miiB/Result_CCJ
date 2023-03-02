@@ -41,5 +41,6 @@
     <string name="set_number2">数値を入力（％）</string>
     <string name="set_number3">数値を入力（Pt）</string>
     <string name="score">スコア</string>
+    <string name="default_chara">いつも使うキャラ</string>
 
 </resources>
