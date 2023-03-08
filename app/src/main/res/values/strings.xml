@@ -40,7 +40,16 @@
     <string name="set_number">数値を入力（回）</string>
     <string name="set_number2">数値を入力（％）</string>
     <string name="set_number3">数値を入力（Pt）</string>
-    <string name="score">スコア</string>
+    <string name="score">貢献度</string>
     <string name="default_chara">いつも使うキャラ</string>
+    <string name="win_rate">勝率</string>
+    <string name="Total">通算成績</string>
+    <string name="kill_rate">平均キル数</string>
+    <string name="kill_death">キル数／デス数</string>
+    <string name="charge_rate">平均充電率</string>
+    <string name="chain_rate">平均チェイン数</string>
+    <string name="score_rate">平均貢献度</string>
+    <string name="death_rate">平均デス数</string>
+    <string name="runP_rate">平均逃走P</string>
 
 </resources>

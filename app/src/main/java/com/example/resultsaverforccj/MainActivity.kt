@@ -4,11 +4,21 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //ヘルパー準備
+        val helper = DataBaseHelper(this)
+        //DB取得
+        helper.writableDatabase.use{
+            Toast.makeText(this, "記録用のデータベースを生成しました。",
+                Toast.LENGTH_LONG).show()
+        }
+
 
 
         //画面遷移関連

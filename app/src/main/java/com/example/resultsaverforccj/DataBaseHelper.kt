@@ -23,6 +23,10 @@ class DataBaseHelper(context: Context) :
                 "result TEXT,usedChara TEXT,map TEXT," +
                 "kill INTEGER,death INTEGER,charge REAL,chain INTEGER," +
                 "runP INTEGER,score INTEGER,cpu INTEGER,goal INTEGER)")
+        /*テストデータ（処分）
+        db?.execSQL("INSERT INTO results(result,usedChara,map,kill,death,charge,chain,runP,score,cpu,goal)" +
+                " VALUES('WIN','カギコ','ウラシブヤ',3,2,33.3,10,25,170,0,1)")
+        */
 
     }
 
@@ -32,6 +36,7 @@ class DataBaseHelper(context: Context) :
             onCreate(it)
         }
     }
+    //連番付与の属性を設定すること
 
     override fun onOpen(db: SQLiteDatabase?) {
         super.onOpen(db)
