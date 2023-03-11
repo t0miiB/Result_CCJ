@@ -14,6 +14,7 @@ class DataBaseHelper(context: Context) :
 
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL("CREATE TABLE results ( " +
+                "_id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 /*
                         カラム"result","usedChara","map",
                         "kill","death","charge","chain",

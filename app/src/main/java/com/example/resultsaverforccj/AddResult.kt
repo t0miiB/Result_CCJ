@@ -20,23 +20,12 @@ class AddResult : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_result)
 
-        //データ入力フォーム
         val helper = DataBaseHelper(this)
-        val txtKill = findViewById<EditText>(R.id.eT_kill)
-        val txtDeath = findViewById<EditText>(R.id.eT_death)
-        val txtCharge = findViewById<EditText>(R.id.eT_charge)
-        val txtChain = findViewById<EditText>(R.id.eT_chain)
-        val txtRunP = findViewById<EditText>(R.id.eT_runP)
-        val txtScore = findViewById<EditText>(R.id.eT_score)
-        val cheCpu = findViewById<CheckBox>(R.id.cpu_part)
-        val cheGoal = findViewById<CheckBox>(R.id.goal_in)
 
         //spinner取得
         val spnResult = findViewById<Spinner>(R.id.SpnResult)
         val spnCharacter = findViewById<Spinner>(R.id.SpnCharacter)
         val spnMap = findViewById<Spinner>(R.id.SpnMap)
-
-
         //取得した値を保存する変数
         var itemResult = "WIN"
         var itemCharacter = "カギコ"
@@ -51,16 +40,12 @@ class AddResult : AppCompatActivity() {
             ) {
                 val spinnerParent = parent as Spinner
                 val item0 = spinnerParent.selectedItem as String
-
                 itemResult = item0
             }
-
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 //
             }
         }
-
-
         spnCharacter.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(
                 parent: AdapterView<*>?,
@@ -70,15 +55,12 @@ class AddResult : AppCompatActivity() {
             ) {
                 val spinnerParent = parent as Spinner
                 val item1 = spinnerParent.selectedItem as String
-
                 itemCharacter = item1
             }
-
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 //
             }
         }
-
         spnMap.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(
                 parent: AdapterView<*>?,
@@ -88,12 +70,31 @@ class AddResult : AppCompatActivity() {
             ) {
                 val spinnerParent = parent as Spinner
                 val item2 = spinnerParent.selectedItem as String
-
                 itemMap = item2
             }
-
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 //
+            }
+        }
+
+        //checkbox取得
+        val cheCpu = findViewById<CheckBox>(R.id.cpu_part)
+        val cheGoal = findViewById<CheckBox>(R.id.goal_in)
+        //取得した値を保存する変数
+        var itemCpu = 0
+        var itemGoal = 0
+        cheCpu.setOnClickListener{
+            itemCpu = if(cheCpu.isChecked){
+                1
+            }else{
+                0
+            }
+        }
+        cheCpu.setOnClickListener{
+            itemGoal = if(cheGoal.isChecked){
+                1
+            }else{
+                0
             }
         }
 
@@ -104,8 +105,15 @@ class AddResult : AppCompatActivity() {
             startActivity(i)
         }
 
-        //保存ボタン押下で入力内容確定
-        //メインに戻る処理を追加すること
+        //edittext取得
+        val txtKill = findViewById<EditText>(R.id.eT_kill)
+        val txtDeath = findViewById<EditText>(R.id.eT_death)
+        val txtCharge = findViewById<EditText>(R.id.eT_charge)
+        val txtChain = findViewById<EditText>(R.id.eT_chain)
+        val txtRunP = findViewById<EditText>(R.id.eT_runP)
+        val txtScore = findViewById<EditText>(R.id.eT_score)
+
+        //保存ボタン押下で入力内容確定、メイン画面に戻る
         val btnSave = findViewById<Button>(R.id.save)
         btnSave.setOnClickListener {
             helper.writableDatabase.use{db ->
@@ -119,15 +127,14 @@ class AddResult : AppCompatActivity() {
                     put("result",itemResult)
                     put("usedChara",itemCharacter)
                     put("map",itemMap)
-
+                    put("cpu",itemCpu)
+                    put("goal",itemGoal)
                 }
                 db.insert("results",null,cv)
                 Toast.makeText(this, "登録完了しました。",Toast.LENGTH_SHORT).show()
-
+                val i = Intent(this,MainActivity::class.java)
+                startActivity(i)
             }
         }
-
-
-
     }
 }
