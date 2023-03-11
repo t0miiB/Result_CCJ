@@ -37,10 +37,10 @@ class MainActivity : AppCompatActivity() {
             val i = Intent(this, Manage::class.java)
             startActivity(i)
         }
-        val opt = findViewById<Button>(R.id.Option)
-        opt.setOnClickListener {
-            val i = Intent(this, Option::class.java)
-            startActivity(i)
+        //val opt = findViewById<Button>(R.id.Option)
+        //opt.setOnClickListener {
+        //    val i = Intent(this, Option::class.java)
+        //    startActivity(i)
 
 
         }
@@ -50,4 +50,3 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-}
