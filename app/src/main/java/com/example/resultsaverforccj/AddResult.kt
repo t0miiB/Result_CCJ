@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.Toast
 import android.widget.Button
 import android.widget.EditText
-import android.content.ContentValues
 import android.content.Intent
 import android.widget.AdapterView
 import android.view.View
@@ -20,16 +19,18 @@ class AddResult : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_result)
 
-        val helper = DataBaseHelper(this)
+        val database = ResultDataBase.getInstance(this)
+        val dao = database.dao()
 
-        //spinner取得
-        val spnResult = findViewById<Spinner>(R.id.SpnResult)
-        val spnCharacter = findViewById<Spinner>(R.id.SpnCharacter)
-        val spnMap = findViewById<Spinner>(R.id.SpnMap)
-        //取得した値を保存する変数
-        var itemResult = "WIN"
-        var itemCharacter = "カギコ"
-        var itemMap = "ウラシブヤ"
+        //spinner
+        val spnResult = findViewById<Spinner>(R.id.spnResult)
+        val spnCharacter = findViewById<Spinner>(R.id.spnCharacter)
+        val spnMap = findViewById<Spinner>(R.id.spnMap)
+
+        //退避用変数
+        var result = "WIN"
+        var character = "カギコ"
+        var map = "ウラシブヤ"
 
         spnResult.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(
@@ -40,7 +41,7 @@ class AddResult : AppCompatActivity() {
             ) {
                 val spinnerParent = parent as Spinner
                 val item0 = spinnerParent.selectedItem as String
-                itemResult = item0
+                result = item0
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 //
@@ -55,7 +56,7 @@ class AddResult : AppCompatActivity() {
             ) {
                 val spinnerParent = parent as Spinner
                 val item1 = spinnerParent.selectedItem as String
-                itemCharacter = item1
+                character = item1
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 //
@@ -70,71 +71,88 @@ class AddResult : AppCompatActivity() {
             ) {
                 val spinnerParent = parent as Spinner
                 val item2 = spinnerParent.selectedItem as String
-                itemMap = item2
+                map = item2
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 //
             }
         }
 
-        //checkbox取得
-        val cheCpu = findViewById<CheckBox>(R.id.cpu_part)
-        val cheGoal = findViewById<CheckBox>(R.id.goal_in)
-        //取得した値を保存する変数
-        var itemCpu = 0
-        var itemGoal = 0
+        //checkbox
+        val cheCpu = findViewById<CheckBox>(R.id.cpuPart)
+        val cheGoal = findViewById<CheckBox>(R.id.goalIn)
+
+        //退避用変数
+        var cpu = 0
+        var goal = 0
+
         cheCpu.setOnClickListener{
-            itemCpu = if(cheCpu.isChecked){
-                1
+            val tempCpu = cheCpu.isChecked
+            if(tempCpu){
+                cpu = 1
             }else{
-                0
+                cpu = 0
             }
         }
-        cheCpu.setOnClickListener{
-            itemGoal = if(cheGoal.isChecked){
-                1
+        cheGoal.setOnClickListener{
+            val tempGoal = cheGoal.isChecked
+            if(tempGoal){
+                goal = 1
             }else{
-                0
+                goal = 0
             }
         }
 
-        //中止ボタン押下でメイン画面に戻る
-        val btnMain = findViewById<Button>(R.id.back_main)
+        //中止ボタン
+        val btnMain = findViewById<Button>(R.id.backMain)
         btnMain.setOnClickListener {
             val i = Intent(this,MainActivity::class.java)
             startActivity(i)
         }
 
-        //edittext取得
-        val txtKill = findViewById<EditText>(R.id.eT_kill)
-        val txtDeath = findViewById<EditText>(R.id.eT_death)
-        val txtCharge = findViewById<EditText>(R.id.eT_charge)
-        val txtChain = findViewById<EditText>(R.id.eT_chain)
-        val txtRunP = findViewById<EditText>(R.id.eT_runP)
-        val txtScore = findViewById<EditText>(R.id.eT_score)
+        //edittext
+        val txtKill = findViewById<EditText>(R.id.kill)
+        val txtDeath = findViewById<EditText>(R.id.death)
+        val txtCharge = findViewById<EditText>(R.id.charge)
+        val txtChain = findViewById<EditText>(R.id.chain)
+        val txtRun = findViewById<EditText>(R.id.runPoint)
+        val txtScore = findViewById<EditText>(R.id.score)
 
-        //保存ボタン押下で入力内容確定、メイン画面に戻る
-        val btnSave = findViewById<Button>(R.id.save)
-        btnSave.setOnClickListener {
-            helper.writableDatabase.use{db ->
-                val cv = ContentValues().apply{
-                    put("kill",txtKill.text.toString())
-                    put("death",txtDeath.text.toString())
-                    put("charge",txtCharge.text.toString())
-                    put("chain",txtChain.text.toString())
-                    put("runP",txtRunP.text.toString())
-                    put("score",txtScore.text.toString())
-                    put("result",itemResult)
-                    put("usedChara",itemCharacter)
-                    put("map",itemMap)
-                    put("cpu",itemCpu)
-                    put("goal",itemGoal)
-                }
-                db.insert("results",null,cv)
-                Toast.makeText(this, "登録完了しました。",Toast.LENGTH_SHORT).show()
-                val i = Intent(this,MainActivity::class.java)
-                startActivity(i)
+        //退避用変数
+        var kill:Int
+        var death:Int
+        var charge:Double
+        var chain:Int
+        var run:Int
+        var score:Int
+
+        fun editTextToInt(editText: EditText):Int{
+            val insertValue:Int
+            if(editText == null){
+                insertValue = 0
+            }else{
+                insertValue = editText.text.toString().toInt()
             }
+            return insertValue
         }
+
+
+        //保存ボタン
+        val btnSave = findViewById<Button>(R.id.save)
+        btnSave.setOnClickListener{
+            kill = editTextToInt(txtKill)
+            death = editTextToInt(txtDeath)
+            chain = editTextToInt(txtChain)
+            run = editTextToInt(txtRun)
+            score = editTextToInt(txtScore)
+            charge = txtCharge.text.toString().toDouble()
+            val insertData =
+                DataBase(0,result,character,map,kill,death,chain,run,score,cpu,goal,charge)
+            dao.insert(insertData)
+            Toast.makeText(this, "登録完了しました。",Toast.LENGTH_SHORT).show()
+            val i = Intent(this,MainActivity::class.java)
+            startActivity(i)
+        }
+
     }
 }

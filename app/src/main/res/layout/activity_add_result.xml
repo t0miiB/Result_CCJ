@@ -8,12 +8,12 @@
     tools:context=".AddResult">
 
     <Spinner
-        android:id="@+id/SpnResult"
+        android:id="@+id/spnResult"
         android:layout_width="150dp"
         android:layout_height="55dp"
         android:background="#2BEFB1"
         android:backgroundTint="#EDE8BA"
-        android:entries="@array/Result_wld"
+        android:entries="@array/result"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,40 +23,40 @@
         app:layout_constraintVertical_bias="0.031" />
 
     <Spinner
-        android:id="@+id/SpnCharacter"
+        android:id="@+id/spnCharacter"
         android:layout_width="150dp"
         android:layout_height="55dp"
         android:background="#2BEFB1"
         android:backgroundTint="#EDE8BA"
-        android:entries="@array/Chara_list"
+        android:entries="@array/charaList"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.265"
         app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/SpnResult"
+        app:layout_constraintTop_toBottomOf="@+id/spnResult"
         app:layout_constraintVertical_bias="0.0" />
 
     <Spinner
-        android:id="@+id/SpnMap"
+        android:id="@+id/spnMap"
         android:layout_width="150dp"
         android:layout_height="55dp"
         android:background="#2BEFB1"
         android:backgroundTint="#EDE8BA"
-        android:entries="@array/Map_list"
+        android:entries="@array/mapList"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.265"
         app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/SpnCharacter"
+        app:layout_constraintTop_toBottomOf="@+id/spnCharacter"
         app:layout_constraintVertical_bias="0.001" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="180dp"
         android:layout_height="55dp"
-        android:text="@string/winlose"
+        android:text="@string/result"
         android:textSize="34sp"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -71,7 +71,7 @@
         android:id="@+id/textView4"
         android:layout_width="180dp"
         android:layout_height="55dp"
-        android:text="@string/character_used"
+        android:text="@string/characterUsed"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -155,7 +155,7 @@
         android:id="@+id/textView10"
         android:layout_width="180dp"
         android:layout_height="55dp"
-        android:text="@string/run_p"
+        android:text="@string/runPoint"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -181,10 +181,10 @@
         tools:ignore="TextSizeCheck" />
 
     <CheckBox
-        android:id="@+id/cpu_part"
+        android:id="@+id/cpuPart"
         android:layout_width="140dp"
         android:layout_height="50dp"
-        android:text="@string/cpu_partially"
+        android:text="@string/cpuPartially"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -194,26 +194,26 @@
         app:layout_constraintVertical_bias="0.851" />
 
     <CheckBox
-        android:id="@+id/goal_in"
+        android:id="@+id/goalIn"
         android:layout_width="140dp"
         android:layout_height="50dp"
-        android:text="@string/goal_in"
+        android:text="@string/goalIn"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.483"
-        app:layout_constraintStart_toEndOf="@+id/cpu_part"
+        app:layout_constraintStart_toEndOf="@+id/cpuPart"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.851"
         tools:ignore="TextSizeCheck" />
 
     <EditText
-        android:id="@+id/eT_kill"
+        android:id="@+id/kill"
         android:layout_width="150dp"
         android:layout_height="55dp"
         android:layout_marginEnd="36dp"
         android:ems="10"
-        android:hint="@string/set_number"
+        android:hint="@string/setNumber"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -224,87 +224,87 @@
         tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck,DuplicateSpeakableTextCheck" />
 
     <EditText
-        android:id="@+id/eT_death"
+        android:id="@+id/death"
         android:layout_width="150dp"
         android:layout_height="55dp"
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="336dp"
         android:ems="10"
-        android:hint="@string/set_number"
+        android:hint="@string/setNumber"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/eT_kill"
+        app:layout_constraintTop_toBottomOf="@+id/kill"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck" />
 
     <EditText
-        android:id="@+id/eT_charge"
+        android:id="@+id/charge"
         android:layout_width="150dp"
         android:layout_height="55dp"
         android:layout_marginStart="12dp"
         android:ems="10"
-        android:hint="@string/set_number2"
+        android:hint="@string/setNumber2"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.027"
         app:layout_constraintStart_toEndOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/eT_death"
+        app:layout_constraintTop_toBottomOf="@+id/death"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck" />
 
     <EditText
-        android:id="@+id/eT_chain"
+        android:id="@+id/chain"
         android:layout_width="150dp"
         android:layout_height="55dp"
         android:layout_marginStart="13dp"
         android:layout_marginEnd="36dp"
         android:ems="10"
-        android:hint="@string/set_number"
+        android:hint="@string/setNumber"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/eT_charge"
+        app:layout_constraintTop_toBottomOf="@+id/charge"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck" />
 
     <EditText
-        android:id="@+id/eT_runP"
+        android:id="@+id/runPoint"
         android:layout_width="150dp"
         android:layout_height="55dp"
         android:ems="10"
-        android:hint="@string/set_number3"
+        android:hint="@string/setNumber3"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.265"
         app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintTop_toBottomOf="@+id/eT_chain"
+        app:layout_constraintTop_toBottomOf="@+id/chain"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck,DuplicateSpeakableTextCheck" />
 
     <EditText
-        android:id="@+id/eT_score"
+        android:id="@+id/score"
         android:layout_width="150dp"
         android:layout_height="55dp"
         android:ems="10"
-        android:hint="@string/set_number3"
+        android:hint="@string/setNumber3"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.265"
         app:layout_constraintStart_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/eT_runP"
+        app:layout_constraintTop_toBottomOf="@+id/runPoint"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="Autofill,LabelFor,SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/back_main"
+        android:id="@+id/backMain"
         android:layout_width="150dp"
         android:layout_height="60dp"
         android:backgroundTint="#8C8F97"
@@ -330,7 +330,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.636"
-        app:layout_constraintStart_toEndOf="@+id/back_main"
+        app:layout_constraintStart_toEndOf="@+id/backMain"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.962"
         tools:ignore="TextContrastCheck" />

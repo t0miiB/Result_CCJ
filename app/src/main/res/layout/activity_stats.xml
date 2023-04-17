@@ -7,10 +7,10 @@
     tools:context=".Stats">
 
     <TextView
-        android:id="@+id/win_rate"
+        android:id="@+id/winRate"
         android:layout_width="80dp"
         android:layout_height="50dp"
-        android:text="勝率"
+        android:text="@string/winRate"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

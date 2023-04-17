@@ -7,10 +7,10 @@
     tools:context=".Option">
 
     <TextView
-        android:id="@+id/default_chara"
+        android:id="@+id/defaultChara"
         android:layout_width="275dp"
         android:layout_height="52dp"
-        android:text="@string/default_chara"
+        android:text="@string/defaultChara"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,12 +22,12 @@
 
 
     <Spinner
-        android:id="@+id/SpnResult"
+        android:id="@+id/spnResult"
         android:layout_width="150dp"
         android:layout_height="55dp"
         android:background="#2BEFB1"
         android:backgroundTint="#EDE8BA"
-        android:entries="@array/Chara_list"
+        android:entries="@array/charaList"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
